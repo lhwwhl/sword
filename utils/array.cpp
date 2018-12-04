@@ -16,22 +16,18 @@ https://github.com/zhedahht/CodingInterviewChinese2/blob/master/LICENSE.txt)
 #include <cstdlib>
 
 #include "array.h"
-// Random Partition
-int RandomInRange(int min, int max)
-{
+int RandomInRange(int min, int max) {
     int random = rand() % (max - min + 1) + min;
     return random;
 }
 
-void Swap(int* num1, int* num2)
-{
+void Swap(int* num1, int* num2) {
     int temp = *num1;
     *num1 = *num2;
     *num2 = temp;
 }
 
-int Partition(int data[], int length, int start, int end)
-{
+int Partition(int data[], int length, int start, int end) {
     if(data == nullptr || length <= 0 || start < 0 || end >= length)
         printf("Invalid Parameters");
 
@@ -39,10 +35,8 @@ int Partition(int data[], int length, int start, int end)
     Swap(&data[index], &data[end]);
 
     int small = start - 1;
-    for(index = start; index < end; ++ index)
-    {
-        if(data[index] < data[end])
-        {
+    for(index = start; index < end; ++ index) {
+        if(data[index] < data[end]) {
             ++ small;
             if(small != index)
                 Swap(&data[index], &data[small]);
